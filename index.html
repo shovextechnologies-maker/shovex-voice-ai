@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
+<title>Shovex Voice AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#071426;color:#f5f7fb;font-family:Arial,sans-serif}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #20324b}
+.logo{font-size:21px;font-weight:800;color:#fff}
+.logo span{color:#4d9cff}
+nav a{color:#c5d2e4;text-decoration:none;margin-left:18px;font-size:13px}
+.hero{text-align:center;padding:55px 18px 35px}
+.tag{color:#58a6ff;font-size:12px;letter-spacing:2px;font-weight:bold}
+h1{font-size:38px;margin:16px 0 12px}
+h1 span{color:#58a6ff}
+.hero p{color:#a8b6ca;line-height:1.7;max-width:500px;margin:auto}
+.studio{max-width:760px;margin:20px auto 60px;padding:25px;background:#102139;border:1px solid #263e5d;border-radius:16px;width:92%}
+.studio h2{margin-top:0;font-size:21px}
+label{display:block;margin:19px 0 9px;font-size:13px;color:#d6e1ef;font-weight:bold}
+textarea,select{width:100%;background:#09172a;color:white;border:1px solid #344a68;border-radius:9px;padding:14px;font-size:15px;outline:none}
+textarea{height:150px;resize:vertical;line-height:1.6}
+textarea:focus,select:focus{border-color:#58a6ff}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+small{color:#91a4be}
+button{border:0;cursor:pointer;border-radius:9px;padding:15px;font-weight:bold}
+.generate{width:100%;background:#287ce4;color:white;margin-top:23px;font-size:16px}
+.generate:active{background:#145bb1}
+.notice{margin-top:16px;padding:13px;border-radius:9px;background:#09172a;color:#9fb5d1;font-size:13px;line-height:1.6}
+footer{text-align:center;padding:25px;color:#8193ab;border-top:1px solid #20324b;font-size:12px}
+@media(max-width:500px){
+h1{font-size:31px}
+nav a{margin-left:8px;font-size:11px}
+.studio{padding:18px}
+.row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">SHOVEX<span> VOICE AI</span></div>
+<nav>
+<a href="#studio">Voice Studio</a>
+<a href="#about">About</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="tag">THE FUTURE OF VOICE GENERATION</div>
+<h1>Give Your Words<br><span>A Voice.</span></h1>
+<p>Transform written text into expressive speech. Create voiceovers for videos, stories, presentations and more.</p>
+</section>
+
+<main class="studio" id="studio">
+<h2>🎙️ Voice Studio</h2>
+<p style="color:#9fb5d1;font-size:13px">Create your next voiceover with Shovex.</p>
+
+<label for="script">Your text</label>
+<textarea id="script" maxlength="5000" placeholder="Type or paste your script here..."></textarea>
+<small id="count">0 / 5000 characters</small>
+
+<div class="row">
+<div>
+<label for="voice">Choose a voice</label>
+<select id="voice">
+<option value="male">Male voice</option>
+<option value="female">Female voice</option>
+</select>
+</div>
+<div>
+<label for="accent">Accent</label>
+<select id="accent">
+<option>American English</option>
+<option>British English</option>
+<option>Nigerian English</option>
+</select>
+</div>
+</div>
+
+<div class="row">
+<div>
+<label for="style">Voice style</label>
+<select id="style">
+<option>Natural</option>
+<option>Storytelling</option>
+<option>Suspenseful</option>
+<option>Professional</option>
+<option>Calm</option>
+<option>Energetic</option>
+</select>
+</div>
+<div>
+<label for="speed">Speech speed</label>
+<select id="speed">
+<option value="0.8">Slow</option>
+<option value="1" selected>Normal</option>
+<option value="1.2">Fast</option>
+</select>
+</div>
+</div>
+
+<button class="generate" onclick="generate()">Generate Speech →</button>
+
+<div class="notice" id="status">
+Your voice studio is ready. The AI voice engine will be connected in our next development stage.
+</div>
+</main>
+
+<section id="about" style="text-align:center;padding:15px 20px 45px">
+<h2>Built for creators and businesses.</h2>
+<p style="color:#9fb5d1;line-height:1.7;font-size:14px">
+Natural narration. Creative storytelling. Professional voiceovers.
+<br>Powered by Shovex Technologies.
+</p>
+</section>
+
+<footer>
+© 2026 Shovex Technologies. All rights reserved.
+</footer>
+
+<script>
+const scriptBox=document.getElementById("script");
+scriptBox.addEventListener("input",()=>{
+document.getElementById("count").textContent=
+scriptBox.value.length+" / 5000 characters";
+});
+function generate(){
+const text=scriptBox.value.trim();
+const status=document.getElementById("status");
+if(!text){
+status.textContent="Please enter some text before generating speech.";
+return;
+}
+status.textContent="Your script is ready! We are preparing to connect the AI speech engine. Audio generation will become available after that connection.";
+}
+</script>
+</body>
+  </html>
+  
